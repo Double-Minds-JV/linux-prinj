@@ -188,7 +188,7 @@ int main(int argc, const char* const* argv)
 	}
 
 	/* Write the original rip at the beginning of the mem block */
-	if (0 != ptrace(PTRACE_POKETEXT, pid, regs2.rax, regs1.rip - 2)) {
+	if (0 != ptrace(PTRACE_POKETEXT, pid, regs2.rax, regs1.rip)) {
 		perror("Failed to write return rip to memory");
 		return 1;
 	}
